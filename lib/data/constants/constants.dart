@@ -17,6 +17,7 @@ class Constants {
 
   //Images
   static const String profile = "$imageDir/profile.png";
+  static const String map = "$imageDir/map.png";
 
   //Icons
   static const String appIcon = "$iconDir/icon.png";

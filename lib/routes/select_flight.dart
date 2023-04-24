@@ -1,7 +1,20 @@
 import 'package:chat_shape/chat_shape.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:riverpod_lint/riverpod_lint.dart';
 import '../data/constants/constants.dart';
+
+class S extends ConsumerWidget {
+  const S({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Container();
+  }
+}
 
 class SelectFlight extends StatefulWidget {
   const SelectFlight({Key? key}) : super(key: key);
@@ -13,6 +26,10 @@ class SelectFlight extends StatefulWidget {
 class _SelectFlightState extends State<SelectFlight> {
   @override
   Widget build(BuildContext context) {
+    @riverpod
+    void e() {
+
+    }
     return Material(
       child: Stack(children: [
         Positioned(
