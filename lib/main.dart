@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             useMaterial3: true,
             brightness: Brightness.light,
-            colorSchemeSeed: const Color(0xff23355f),
+            colorSchemeSeed: Colors.cyan,
             fontFamily: FontResoft.poppins,
             package: FontResoft.package,
             highlightColor: Colors.transparent,
@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData(
             useMaterial3: true,
             brightness: Brightness.dark,
-            colorSchemeSeed: const Color(0xff23355f),
+            colorSchemeSeed: Colors.cyan,
             fontFamily: FontResoft.poppins,
             package: FontResoft.package,
             highlightColor: Colors.transparent,
