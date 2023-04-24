@@ -5,9 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/constants/constants.dart';
 
-/*@riverpod
-int count(CountRef ref) => 0;*/
-
 class SelectFlight extends StatefulWidget {
   const SelectFlight({Key? key}) : super(key: key);
 
@@ -20,7 +17,6 @@ class _SelectFlightState extends State<SelectFlight> {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (BuildContext context, WidgetRef ref, Widget? child) {
-        //final countValue = ref.watch(countProvider);
         final color = Theme.of(context).colorScheme;
         final width = MediaQuery.of(context).size.width;
         return Material(
