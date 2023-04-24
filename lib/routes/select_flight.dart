@@ -1,4 +1,4 @@
-import 'package:flight_tracker_and_bookings_ui_app/widgets/chat_shape_painter.dart';
+import 'package:chat_shape/chat_shape.dart';
 import 'package:flutter/material.dart';
 
 import '../data/constants/constants.dart';
@@ -16,21 +16,21 @@ class _SelectFlightState extends State<SelectFlight> {
     return Material(
       child: Stack(children: [
         Positioned(
-          top: 50,
-          left: 20,
+          top: 0,
+          left: 0,
           width: MediaQuery.of(context).size.width - 636,
           child: CustomPaint(
             painter: ChatShapePainter(
               context: context,
-              height: 200000,
-              width: MediaQuery.of(context).size.width - 136,
+              width: MediaQuery.of(context).size.width,
+              height: 250,
               color: Colors.indigo,
-              applyTopRadius: true,
+              applyTopRadius: false,
               enableHandle: true,
-              handleHeight: 8000000,
-              handleWidth: 50,
-              radius: 300000,
-              enableHandleCap: true,
+              handleHeight: 70,
+              handleWidth: 180,
+              radius: 30,
+              enableHandleCap: false,
               handle: HandleType.curved,
             ),
           ),

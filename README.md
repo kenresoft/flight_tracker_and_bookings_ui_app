@@ -1,6 +1,7 @@
 # flight_tracker_and_bookings_ui_app
 
-Flutter project of UI design from themeforest. It is for easy flight bookings and tracking.
+Flutter live app project of UI design from themeforest. 
+It is for easy flight bookings and tracking.
 
 ## Getting Started
 
