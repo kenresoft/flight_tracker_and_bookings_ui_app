@@ -14,14 +14,19 @@ dependencies:
   flutter:
     sdk: flutter
 
+  riff_switch:
+    path: '../packages/riff_switch'
+
   chat_shape:
-    git:
-      url: git@github.com:kenresoft/chat_shape.git
-      ref: master
+    path: '../packages/chat_shape'
+#    git:
+#      url: git@github.com:kenresoft/chat_shape.git
+#      ref: master
   fontresoft:
-    git:
-      url: git@github.com:kenresoft/fontresoft.git
-      ref: master
+    path: '../packages/fontresoft'
+#    git:
+#      url: git@github.com:kenresoft/fontresoft.git
+#      ref: master
   extensionresoft:
     git:
       url: git@github.com:kenresoft/extensionresoft.git

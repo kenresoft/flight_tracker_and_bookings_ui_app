@@ -10,6 +10,8 @@ class BoardingPass extends StatefulWidget {
 class _BoardingPassState extends State<BoardingPass> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Container(),
+    );
   }
 }

@@ -75,6 +75,7 @@ class MyApp extends StatelessWidget {
   final GoRouter _router = GoRouter(
     routes: <GoRoute>[
       route(Constants.root, const SelectFlight()),
+      //route(Constants.root, const BoardingPass()),
       route(Constants.selection, const SelectFlight()),
       route(Constants.booking, const BookFlight()),
       route(Constants.boarding, const BoardingPass()),
