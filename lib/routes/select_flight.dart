@@ -73,29 +73,36 @@ class _SelectFlightState extends State<SelectFlight> {
             ),
 
             /// section 2
-            Padding(
+/*            Padding(
               padding: const EdgeInsets.all(15),
               child: Switch(
                 value: ref.watch(switchProvider.select((value) => value)),
                 onChanged: (value) => ref.watch(switchProvider.notifier).check(value),
                 activeColor: Colors.redAccent,
+                activeTrackColor: Colors.yellow,
+                inactiveTrackColor: Colors.greenAccent,
+                inactiveThumbColor: Colors.green,
               ),
-            ),
+            ),*/
 
             /// SWITCH
             Padding(
-              padding: const EdgeInsets.all(15),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
               child: SizedBox(
-                //width: 250,
+                width: 250,
                 child: CustomSwitch(
-                  trackColor: color.secondaryContainer,
+                  //trackColor: color.secondaryContainer,
                   onChanged: (value) => ref.watch(switchProvider.notifier).check(value),
                   value: ref.watch(switchProvider.select((value) => value)),
-                  defaultText: Text('Round Trip'),
-                  selectedText: Text('Oneway'),
+                  activeTrackColor: color.secondaryContainer,
+                  activeColor: color.inversePrimary,
+                  inactiveTrackColor: color.secondaryContainer,
+                  inactiveThumbColor: color.inversePrimary,
                 ),
               ),
             ),
+
+            10.spaceY(),
 
             /// FROM
             Expanded(
@@ -103,25 +110,22 @@ class _SelectFlightState extends State<SelectFlight> {
                 child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 18),
-                          child: Text('From', style: TextStyle(color: Color(0xff1a1348), fontWeight: FontWeight.w600)),
+                    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 18),
+                        child: Text('From', style: TextStyle(color: Color(0xff1a1348), fontWeight: FontWeight.w600)),
+                      ),
+                      TextField(
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: color.secondaryContainer,
+                          prefixIcon: Icon(Icons.flight_takeoff_outlined, color: Color(0xff1a1348)),
+                          label: Text('Paris', style: TextStyle(fontWeight: FontWeight.bold)),
+                          contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                          enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
                         ),
-                        TextField(
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: color.secondaryContainer,
-                            prefixIcon: Icon(Icons.flight_takeoff_outlined, color: Color(0xff1a1348)),
-                            label: Text('Paris', style: TextStyle(fontWeight: FontWeight.bold)),
-                            contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-                            enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ]),
                   ),
 
                   10.spaceY(),
@@ -129,12 +133,37 @@ class _SelectFlightState extends State<SelectFlight> {
                   /// TO
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 18),
+                        child: Text('To', style: TextStyle(color: Color(0xff1a1348), fontWeight: FontWeight.w600)),
+                      ),
+                      TextField(
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: color.secondaryContainer,
+                          prefixIcon: Icon(Icons.flight_land_outlined, color: Color(0xff1a1348)),
+                          label: Text('Florence', style: TextStyle(fontWeight: FontWeight.bold)),
+                          contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                          enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
+                        ),
+                      ),
+                    ]),
+                  ),
+
+                  10.spaceY(),
+
+                  /// ROW
+                  ///
+                  /// DEPART
+                  /*SizedBox(
+                    width: 200,
+                    height: 80,
+                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                      Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 18),
-                          child: Text('To', style: TextStyle(color: Color(0xff1a1348), fontWeight: FontWeight.w600)),
+                          padding: const EdgeInsets.only(left: 3),
+                          child: Text('Depart', style: TextStyle(color: Color(0xff1a1348), fontWeight: FontWeight.w600)),
                         ),
                         TextField(
                           decoration: InputDecoration(
@@ -146,16 +175,34 @@ class _SelectFlightState extends State<SelectFlight> {
                             enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
                           ),
                         ),
-                      ],
-                    ),
-                  ),
+                      ]),
 
-                  10.spaceY(),
+                      5.spaceX(),
+
+                      /// RETURN
+                      Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 3),
+                          child: Text('Return', style: TextStyle(color: Color(0xff1a1348), fontWeight: FontWeight.w600)),
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: color.secondaryContainer,
+                            prefixIcon: Icon(Icons.flight_land_outlined, color: Color(0xff1a1348)),
+                            label: Text('Florence', style: TextStyle(fontWeight: FontWeight.bold)),
+                            contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                            enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
+                          ),
+                        ),
+                      ]),
+                    ]),
+                  ),*/
 
                   /// Button
                   MaterialButton(
                     onPressed: () => 'clicked'.toast,
-                    color: Colors.cyan,
+                    color: color.inversePrimary,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
                     minWidth: width - 30,
                     height: 50,
