@@ -92,19 +92,27 @@ class _SelectFlightState extends State<SelectFlight> {
                 width: 250,
                 child: RiffSwitch(
                   //trackColor: color.secondaryContainer,
-                  type: RiffSwitchType.text,
+                  type: RiffSwitchType.decorative,
+                  inactiveChild: const Text('Inactive'),
+                  activeChild: FlutterLogo(),
                   onChanged: (value) => ref.watch(switchProvider.notifier).check(value),
                   value: ref.watch(switchProvider.select((value) => value)),
-                  activeTrackColor: color.secondaryContainer,
-                  activeColor: color.inversePrimary,
-                  inactiveTrackColor: color.secondaryContainer,
-                  inactiveThumbColor: color.inversePrimary,
-                  trackColor: MaterialStateProperty.resolveWith((Set states) {
-                    if (states.contains(MaterialState.disabled)) {
+                  //activeTrackColor: color.secondaryContainer,
+                  //activeColor: color.inversePrimary,
+                  //inactiveTrackColor: color.secondaryContainer,
+                  //inactiveThumbColor: color.inversePrimary,
+                  /*trackColor: MaterialStateProperty.resolveWith((Set states) {
+                    if (states.contains(MaterialState.selected)) {
                       return Colors.greenAccent.withOpacity(.48);
                     }
+                    return Colors.grey;
+                  }),*/
+                  /*thumbColor: MaterialStateProperty.resolveWith((Set states) {
+                    if (states.contains(MaterialState.selected)) {
+                      return Colors.blue;
+                    }
                     return Colors.pink;
-                  }),
+                  }),*/
                 ),
               ),
             ),
