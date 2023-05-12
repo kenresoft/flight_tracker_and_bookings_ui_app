@@ -72,52 +72,26 @@ class _SelectFlightState extends State<SelectFlight> {
               ]),
             ),
 
-            /// section 2
-/*            Padding(
-              padding: const EdgeInsets.all(15),
-              child: Switch(
-                value: ref.watch(switchProvider.select((value) => value)),
-                onChanged: (value) => ref.watch(switchProvider.notifier).check(value),
-                activeColor: Colors.redAccent,
-                activeTrackColor: Colors.yellow,
-                inactiveTrackColor: Colors.greenAccent,
-                inactiveThumbColor: Colors.green,
-              ),
-            ),*/
-
             /// SWITCH
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: SizedBox(
                 width: 250,
                 child: RiffSwitch(
-                  //trackColor: color.secondaryContainer,
-                  type: RiffSwitchType.decorative,
-                  inactiveChild: const Text('Inactive'),
-                  activeChild: FlutterLogo(),
+                  type: RiffSwitchType.simple,
+                  inactiveText: const Text('Round Trip'),
+                  activeText: const Text('Oneway'),
                   onChanged: (value) => ref.watch(switchProvider.notifier).check(value),
                   value: ref.watch(switchProvider.select((value) => value)),
-                  //activeTrackColor: color.secondaryContainer,
+                  activeTrackColor: color.secondaryContainer,
                   //activeColor: color.inversePrimary,
-                  //inactiveTrackColor: color.secondaryContainer,
+                  inactiveTrackColor: color.secondaryContainer,
                   //inactiveThumbColor: color.inversePrimary,
-                  /*trackColor: MaterialStateProperty.resolveWith((Set states) {
-                    if (states.contains(MaterialState.selected)) {
-                      return Colors.greenAccent.withOpacity(.48);
-                    }
-                    return Colors.grey;
-                  }),*/
-                  /*thumbColor: MaterialStateProperty.resolveWith((Set states) {
-                    if (states.contains(MaterialState.selected)) {
-                      return Colors.blue;
-                    }
-                    return Colors.pink;
-                  }),*/
                 ),
               ),
             ),
 
-            10.spaceY(),
+            50.spaceY(),
 
             /// FROM
             Expanded(
