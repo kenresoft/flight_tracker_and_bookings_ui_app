@@ -51,88 +51,79 @@ class _SelectFlightState extends State<SelectFlight> {
                 Positioned(
                   top: 275,
                   left: 0,
+                  bottom: 0,
                   child: Container(
                     height: height,
                     width: width,
-                    //color: Colors.deepPurpleAccent,
                     child: SingleChildScrollView(
-                      child: Container(
-                        child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                          /// Flight Type Switch
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
-                            child: SizedBox(
-                              width: double.infinity,
-                              child: RiffSwitch(
-                                type: RiffSwitchType.simple,
-                                inactiveText: const Text('Round Trip'),
-                                activeText: const Text('Oneway'),
-                                onChanged: (value) => ref.watch(switchProvider.notifier).check(value),
-                                value: ref.watch(switchProvider.select((value) => value)),
-                                activeTrackColor: color.secondaryContainer,
-                                activeColor: color.inversePrimary,
-                                inactiveTrackColor: color.secondaryContainer,
-                                inactiveThumbColor: color.inversePrimary,
-                              ),
+                      child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                        /// Flight Type Switch
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: RiffSwitch(
+                              height: 55,
+                              type: RiffSwitchType.simple,
+                              inactiveText: const Text('Round Trip'),
+                              activeText: const Text('Oneway'),
+                              onChanged: (value) => ref.watch(switchProvider.notifier).check(value),
+                              value: ref.watch(switchProvider.select((value) => value)),
+                              activeTrackColor: color.secondaryContainer,
+                              activeColor: color.inversePrimary,
+                              inactiveTrackColor: color.secondaryContainer,
+                              inactiveThumbColor: color.inversePrimary,
                             ),
                           ),
+                        ),
 
-                          /// 'From' TextField
-                          buildTextField('From', 'Paris', color, Icons.flight_takeoff_outlined),
+                        10.spaceY(),
 
-                          10.spaceY(),
+                        /// 'From' TextField
+                        buildTextField('From', 'Paris', color, Icons.flight_takeoff_outlined),
 
-                          /// 'To' TextField
-                          buildTextField('To', 'Florence', color, Icons.flight_land_outlined),
+                        10.spaceY(),
 
-                          10.spaceY(),
+                        /// 'To' TextField
+                        buildTextField('To', 'Florence', color, Icons.flight_land_outlined),
 
-                          /// Depart & Return
-                          Container(
-                            width: width,
-                            height: 80,
-                            margin: EdgeInsets.symmetric(horizontal: 15),
+                        10.spaceY(),
 
-                            /// Row A
-                            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                              /// Column A1
-                              buildTextFieldColumn('Depart', '24 January', width, color, Icons.calendar_today_outlined),
+                        /// Depart & Return
+                        Container(
+                          width: width,
+                          height: 80,
+                          margin: EdgeInsets.symmetric(horizontal: 15),
+                          child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                            buildTextFieldColumn('Depart', '24 January', width, color, Icons.calendar_today_outlined),
+                            buildTextFieldColumn('Return', '31 January', width, color, Icons.calendar_today_outlined),
+                          ]),
+                        ),
 
-                              /// Column A2
-                              buildTextFieldColumn('Return', '31 January', width, color, Icons.calendar_today_outlined),
-                            ]),
+                        /// Passenger & Class
+                        Container(
+                          width: width,
+                          height: 80,
+                          margin: EdgeInsets.symmetric(horizontal: 15),
+                          child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                            buildTextFieldColumn('Passenger', '2', width, color, null),
+                            buildTextFieldColumn('Class', 'First', width, color, null),
+                          ]),
+                        ),
+
+                        /// Button
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 15),
+                          child: MaterialButton(
+                            onPressed: () => 'clicked'.toast,
+                            color: color.inversePrimary,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+                            minWidth: width - 30,
+                            height: 50,
+                            child: Text("Search Flights"),
                           ),
-
-                          /// Passenger & Class
-                          Container(
-                            width: width,
-                            height: 80,
-                            margin: EdgeInsets.symmetric(horizontal: 15),
-
-                            /// Row B
-                            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                              /// Column B1
-                              buildTextFieldColumn('Passenger', '2', width, color, null),
-
-                              /// Column B2
-                              buildTextFieldColumn('Class', 'First', width, color, null),
-                            ]),
-                          ),
-
-                          /// Button
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 15),
-                            child: MaterialButton(
-                              onPressed: () => 'clicked'.toast,
-                              color: color.inversePrimary,
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-                              minWidth: width - 30,
-                              height: 50,
-                              child: Text("Search Flights"),
-                            ),
-                          ),
-                        ]),
-                      ),
+                        ),
+                      ]),
                     ),
                   ),
                 ),
